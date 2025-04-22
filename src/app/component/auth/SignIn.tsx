@@ -5,22 +5,22 @@ import { Loader2 } from 'lucide-react';
 const initialState = {
     message : '',
 }
-type SignUpProps = {
+type SignInProps = {
     action: (prevState: any, formData: FormData) => Promise<{message?: string | undefined}>
     }
-const SignUp = ({action}: SignUpProps) => {
+const SignIn = ({action}: SignInProps) => {
     const [state, formAction, isPending] = useActionState(action, initialState);
    
     return (
         <Form action={formAction} className="max-w-md mx-auto p-8 my-16 bg-white rounded-lg shadow-md">
             <h1 className="text-2xl font-bold text-center mb-2">
-                Join the DEAL Revolution
+                Welcome Back!
             </h1>
             <p className='text-center text-sm text-rose-600 mb-2 font-semibold '>
-                LIMITED TIME OFFER
+                MEMBER EXCLUSIVE
             </p>
             <p className='text-center text-sm text-gray-600 font-semibold mb-6'>
-                Sign up now and get 90% OFF your first order!
+                Sign in to access your exclusive member deals
             </p>
             <div className='space-y-6'>
 
@@ -52,8 +52,8 @@ const SignUp = ({action}: SignUpProps) => {
 
                  {/* Copyrighting */}
                 <div className='text-center'>
-                    <p className='text-xs text-gray-500 mb-2'>Only 127 welcome bonus packages remaining!</p>
-                    <p className='text-xs text-gray-500 mb-4'>Offer expires in 13:45</p>
+                    <p className='text-xs text-gray-500 mb-2'>Members save an extra 15% on all orders!!</p>
+                    <p className='text-xs text-gray-500 mb-4'>Plus get free shipping on orders over $15.00</p>
                 </div>
 
                  {/* Submit Button */}
@@ -64,18 +64,18 @@ const SignUp = ({action}: SignUpProps) => {
                         {isPending ? (
                             <React.Fragment>
                                 <Loader2 className='animate-spin h-4 w-4'/>
-                                CREATING ACCOUNT...
+                                SIGNING IN
                             </React.Fragment>
                         ) : (
-                            'CREATE ACCOUNT'
+                            'SIGN IN'
                         )}
                 </button>
                 {state?.message && state.message.length > 0 && (
-                    <p className='text-center text-sm text-red-600'></p>
+                    <p className='text-center text-sm text-red-600'>{state.message}</p>
                 )}
             </div>
         </Form>
     )
 }
 
-export default SignUp
+export default SignIn
