@@ -55,7 +55,7 @@ function Header() {
                             <Link href='/contact' className='text-gray-700 hover:text-gray-900'>Contact</Link>
                         </nav>
                     </div>
-                    <Link href='#'>Link</Link>
+                    <Link href='#'>Deal</Link>
                     <div className='flex flex-1 justify-end items-center gap-2 sm:gap-4'>
                         <button className='text-gray-700 hover:text-gray-900 hidden sm:block'>
                             <svg xmlns='http://www.w3.org/2000/svg' className='h-4 w-4 text-gray-400' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
