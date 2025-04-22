@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Header from "./component/layout/Header";
 import { getCurrentSession } from "@/actions/auth";
+import { SanityLive } from "@/sanity/lib/live";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -24,6 +25,7 @@ const RootLayout = async ({
       >
         <Header user={user}/>
         {children}
+        <SanityLive/>
       </body>
     </html>
   );
