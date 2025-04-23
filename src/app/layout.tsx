@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Header from "./component/layout/Header";
 import { getCurrentSession } from "@/actions/auth";
 import { SanityLive } from "@/sanity/lib/live";
+import HeaderCategorySelector from "./component/layout/HeaderCategorySelector";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -23,7 +24,7 @@ const RootLayout = async ({
       <body
         className={`${inter.className} antialiased !bg-white`}
       >
-        <Header user={user}/>
+        <Header user={user} categorySelector={<HeaderCategorySelector/>}/>
         {children}
         <SanityLive/>
       </body>

@@ -20,10 +20,11 @@ const AnnouncementBar = () => {
 }
 
 type HeaderProps = {
-    user: Omit<User, "passwordHash"> | null
+    user: Omit<User, "passwordHash"> | null;
+    categorySelector: React.ReactNode;
 }
 
-function Header({user} : HeaderProps) {
+function Header({user, categorySelector} : HeaderProps) {
     const router = useRouter();
     const [isOpen, setIsOpen] = useState<boolean>(true);
     const [prevScrollY, setPrevScrollY] = useState<number>(0);
@@ -58,10 +59,8 @@ function Header({user} : HeaderProps) {
                         </button>
 
                         <nav className='hidden md:flex gap-4 lg:gap-6 text-sm font-medium'>
-                            <Link href='/' className='text-gray-700 hover:text-gray-900'>Home</Link>
-                            <Link href='/about' className='text-gray-700 hover:text-gray-900'>About</Link>
-                            <Link href='/products' className='text-gray-700 hover:text-gray-900'>Products</Link>
-                            <Link href='/contact' className='text-gray-700 hover:text-gray-900'>Contact</Link>
+                            {categorySelector}
+                            <Link href='/contact' className='text-gray-700 hover:text-gray-900'>Sale</Link>
                         </nav>
                     </div>
                     <Link href='#' className='absolute left-1/2 -translate-x-1/2 '>
