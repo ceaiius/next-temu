@@ -5,6 +5,7 @@ import Header from "./component/layout/Header";
 import { getCurrentSession } from "@/actions/auth";
 import { SanityLive } from "@/sanity/lib/live";
 import HeaderCategorySelector from "./component/layout/HeaderCategorySelector";
+import Cart from "./component/cart/Cart";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -26,6 +27,7 @@ const RootLayout = async ({
       >
         <Header user={user} categorySelector={<HeaderCategorySelector/>}/>
         {children}
+        <Cart/>
         <SanityLive/>
       </body>
     </html>

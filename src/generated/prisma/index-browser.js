@@ -129,6 +129,21 @@ exports.Prisma.SessionScalarFieldEnum = {
   expiresAt: 'expiresAt'
 };
 
+exports.Prisma.CartLineItemScalarFieldEnum = {
+  id: 'id',
+  sanityProductId: 'sanityProductId',
+  quantity: 'quantity',
+  title: 'title',
+  price: 'price',
+  image: 'image',
+  cartId: 'cartId'
+};
+
+exports.Prisma.CartScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -139,10 +154,17 @@ exports.Prisma.QueryMode = {
   insensitive: 'insensitive'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Session: 'Session'
+  Session: 'Session',
+  CartLineItem: 'CartLineItem',
+  Cart: 'Cart'
 };
 
 /**
