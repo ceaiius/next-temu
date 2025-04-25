@@ -1,5 +1,4 @@
 import prisma from "@/lib/prisma";
-import { umamiTrackCheckoutSuccessEvent } from "@/lib/umami";
 import { createClient } from "next-sanity";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
@@ -8,7 +7,7 @@ import Stripe from "stripe";
 export async function POST(req: Request) {
     // Get Stripe client
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-        apiVersion: '2024-12-18.acacia'
+        apiVersion: '2025-03-31.basil'
     });
 
     const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
