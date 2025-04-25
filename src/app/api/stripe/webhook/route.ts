@@ -108,19 +108,6 @@ export async function POST(req: Request) {
                     status: 'PROCESSING',
                 });
 
-                try {
-                    await umamiTrackCheckoutSuccessEvent({
-                        cartId: cartId,
-                        email: order.customerEmail || '-',
-                        orderId: order.orderNumber,
-                        orderTotal: order.totalPrice,
-                        orderCurrency: 'USD',
-                    });
-                } catch(e) {
-                    console.log("Umami tracking error");
-                    console.log(e);
-                }
-
                 await prisma.cart.delete({
                     where: {
                         id: cartId
