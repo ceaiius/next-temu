@@ -21,15 +21,16 @@ const SignInPage = async () => {
         "use server";
         const parsed = SignInSchema.safeParse(Object.fromEntries(formData));
         if (!parsed.success) {
-            return {error: parsed.error.format()}
+            return { message: "Validation error" };
         }
         const {email, password} = parsed.data;
         const {user, error} = await loginUser(email, password);
         if(error){
-            return {message: error}
-        }else if(user){
-            return redirect('/');
+            return { message: error || "An unknown error occurred" };
+        } else if (user) {
+            return { message: "Redirecting to home" };
         }
+        return { message: undefined };
     }
   return <SignIn action={action}/>
 }

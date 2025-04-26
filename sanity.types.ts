@@ -206,7 +206,7 @@ export type ProductCategory = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  description?: string;
+  description: string;
   slug?: Slug;
 };
 

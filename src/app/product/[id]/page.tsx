@@ -16,7 +16,7 @@ const ProductPage = async ({params} : {params: Promise<{id: string}>}) => {
           <div>Product not found</div>
         )
     }
-    const originalPrice = product?.price * 10;
+    const originalPrice = (product?.price ?? 0) * 10;
     return (
         <div className='bg-gray-50 '>
             <SalesCampaignBanner/>
@@ -97,7 +97,7 @@ const ProductPage = async ({params} : {params: Promise<{id: string}>}) => {
                             <div className='flex items-baseline gap-1'>
                                 <span className='text-xs font-bold text-red-600'>US</span>
                                 <span className='text-5xl font-black text-red-600'>
-                                    {formatPrice(product.price).replace('$', '')}
+                                    {formatPrice(product.price ?? 0).replace('$', '')}
                                 </span>
                             </div>
                             <div className='flex flex-col'>
@@ -116,7 +116,7 @@ const ProductPage = async ({params} : {params: Promise<{id: string}>}) => {
                         <div className='flex items-center gap-2 bg-red-50 p-2 rounded-lg'>
                             <span className='text-red-600 font-bold'>💰</span>
                             <span className='text-red-600 font-medium text-sm'>
-                                You save {formatPrice(originalPrice - product.price)}!
+                                You save {formatPrice(originalPrice - (product.price ?? 0))}!
                             </span>
                         </div>
                         <div className='flex items-center gap-2 text-xs text-gray-600'>

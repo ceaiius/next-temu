@@ -26,7 +26,7 @@ export const getAllCategories = async () => {
 export const getCategoryBySlug = async (slug: string) => {
   const query = `*[_type == "productCategory" && slug.current == $slug][0]`
   const category = await sanityFetch({query: query, params: {slug}});
-  return category.data as ProductCategory[];
+  return category.data as ProductCategory;
 }
 
 export const getProductsByCategorySlug = async (slug: string) => {

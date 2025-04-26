@@ -30,6 +30,8 @@ const SignUpPage = async () => {
             await loginUser(email, password);
             return redirect('/');
         }
+
+        return { message: undefined };
     }
   return <SignUp action={action}/>
 }
